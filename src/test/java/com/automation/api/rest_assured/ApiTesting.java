@@ -9,6 +9,10 @@ import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
+/**
+ * @author Rest Assured Test
+ *
+ */
 public class ApiTesting {
 
 	@Test
