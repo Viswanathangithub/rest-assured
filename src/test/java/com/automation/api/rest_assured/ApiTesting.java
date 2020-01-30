@@ -74,6 +74,7 @@ public class ApiTesting {
 		Assert.assertEquals(response.getStatusCode(), 201);
 		Assert.assertNotNull(response.body().asString());
 		Assert.assertEquals(jsonObject.get("serviceProvider"), "TSMTeamAcceptance");
+		System.out.println(response.getBody().asString());
 	}
 
 	/**
