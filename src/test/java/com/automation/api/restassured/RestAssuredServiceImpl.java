@@ -47,12 +47,20 @@ public class RestAssuredServiceImpl {
 		Response response = RestAssured.given().authentication().preemptive().basic(loginRequest.getUsername(), loginRequest.getPassword()).spec(requestSpec).when().post(loginRequest.getLoginUrl());
 		return response;
 	}
-	
+
 	/**
 	 * @param invitationCode
 	 * @return
 	 */
 	public Response sendInvitationCode(String invitationCode) {
 		return RestAssured.given().auth().basic(loginRequest.getUsername(), loginRequest.getPassword()).when().get(loginRequest.getLoginUrl()+"/code/"+invitationCode);
+	}
+
+	/**
+	 * @param invitationCode
+	 * @return
+	 */
+	public Response issueCredential(String issueCredentialPayload) {
+		return RestAssured.given().auth().basic(loginRequest.getUsername(), loginRequest.getPassword()).header("Content-Type","application/json").body(issueCredentialPayload).when().post(loginRequest.getIssueCredentialUrl());
 	}
 }

@@ -17,8 +17,8 @@ public class Utils {
 	 * @return
 	 * Read Payload from File
 	 */
-	public JSONObject readPayloadFromFile() {
-		InputStream inputStream = RestAssuredTesting.class.getResourceAsStream("/com/automation/api/payload/Payload.json");
+	public JSONObject readPayloadFromFile(String fileName) {
+		InputStream inputStream = RestAssuredTesting.class.getResourceAsStream("/com/automation/api/payload/"+fileName+".json");
 		if(inputStream == null) {
 			throw new ApiException("Input payload is Empty");
 		}
